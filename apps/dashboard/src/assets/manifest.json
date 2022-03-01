@@ -1,6 +1,0 @@
-{
-  "remotes": {
-    "login": "http://localhost:4201/remoteEntry.mjs",
-    "todo": "http://localhost:4202/remoteEntry.js"
-  }
-}
