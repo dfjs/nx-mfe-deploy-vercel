@@ -15,6 +15,9 @@ const tsConfigPath =
   process.env.NX_TSCONFIG_PATH ??
   path.join(__dirname, '../../tsconfig.base.json');
 
+const remotesLogin = process.env.MFE_REMOTES_LOGIN;
+const remotesTodo = process.env.MFE_REMOTES_TODO;
+
 const workspaceRootPath = path.join(__dirname, '../../');
 const sharedMappings = new mf.SharedMappings();
 sharedMappings.register(
@@ -46,8 +49,8 @@ module.exports = {
   plugins: [
     new ModuleFederationPlugin({
       remotes: {
-        login: `https://dfjs-nx-mfe-deploy-vercel-login.vercel.app/remoteEntry.mjs`,
-        todo: `https://dfjs-nx-mfe-deploy-vercel-todo.vercel.app/remoteEntry.js`,
+        login: remotesLogin,
+        todo: remotesTodo,
       },
       shared: {
         '@angular/core': { singleton: true, strictVersion: true },
