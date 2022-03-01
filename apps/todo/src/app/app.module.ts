@@ -9,6 +9,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
+import { AuthGuard } from '@ng-mfe/shared/auth';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,6 +27,7 @@ import { RouterModule } from '@angular/router';
                 import('./remote-entry/entry.module').then(
                   (m) => m.RemoteEntryModule
                 ),
+              canActivate: [AuthGuard],
             },
           ],
         },
